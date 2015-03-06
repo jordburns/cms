@@ -143,7 +143,7 @@ INSTALLED_APPS = (
     'polls_plugin',
     'easy_thumbnails',
     'filer',
-    'jb_blog',
+    'jblog',
 
 )
 
