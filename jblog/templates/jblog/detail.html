@@ -1,0 +1,10 @@
+{% extends 'jblog/base.html' %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+<p><img class="img-responsive" width="350px" height="250px" src="{{ post.feature.url }}"></p>
+<hr />
+
+{{ post.abstract|safe }}
+
+{% endblock %}
