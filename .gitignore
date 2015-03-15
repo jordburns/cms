@@ -1,6 +1,5 @@
 *.pyc
 manage.py
-django-polls/
-polls_plugin/
+.*
 static/
 media/
