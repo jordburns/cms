@@ -1,0 +1,43 @@
+{% extends CMS_TEMPLATE %}
+{% load cms_tags staticfiles sekizai_tags menu_tags %}
+
+{% block title %} Post List {% endblock %}
+
+{% block content %}
+
+<div class="col-sm-8">
+<h1> Blog </h1>
+{% if latest_post_list %}
+{% for post in latest_post_list %}
+
+{% include "jblog/post_instance.html" %}
+
+{% endfor %}
+{% if is_paginated %}
+        <div class="pagination">
+            <span class="page-links">
+                {% if page_obj.has_previous %}
+                    <a href="/blog?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="page-current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+                {% if page_obj.has_next %}
+                    <a href="/blog?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+        </div>
+    {% endif %}
+{% else %}
+<p>Check back for updates later</p>
+{% endif %} 
+</div>
+<div class="col-sm-4">
+<h1>Post Categories</h1>
+<ul>
+{% for category in post_categories %}
+<li>{{ category.title}}</li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

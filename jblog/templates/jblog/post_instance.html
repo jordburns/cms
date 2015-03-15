@@ -1,0 +1,38 @@
+<div class="panel {% if post.published %}panel-info{% else %}panel-default{% endif %}">
+<div class="panel-heading">
+<strong><a href="{{ post.get_absolute_url}}">{{ post.title }}</a> </strong> <span class="{%if not post.published %}text-muted{%endif%}">
+Written by: <strong>{{ post.author }}</strong></span> {% if not post.published %}{% endif %}
+</div>
+<div class="panel-body">
+
+<div class="col-md-8 col-sm-12 col-xs-12">
+
+{% if post.published %}
+<span class="text-muted pull-left"><strong>Published: </strong>{{ post.published_date }}</span>
+{% else %}
+<span class="text-muted pull-left"><strong>Created: </strong>{{ post.created }}</span>{% endif %}
+<hr/>
+{{ post.abstract|safe }}
+
+</div>
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  pull-right">
+<br />
+
+<img class="img-responsive img-thumbnail post_pic" src="{{post.feature.url}}">
+<br />
+<br />
+</div>
+
+<div class="col-xs-12">
+<ul class="list-inline pull-right">
+<li><a class="btn-sm btn-default" href="{{post.get_absolute_url}}">READ MORE</a></li>
+{% if user.is_staff  %}
+{% if post.published %}
+<li><a class="btn-sm btn-warning btn-s" href="{% url 'jblog:publish-post' post.slug %}" role="button">Take offline</a></li>
+{% else %}
+<li><a class="btn-sm btn-info btn-s" href="{% url 'jblog:publish-post' post.slug %}" role="button">Publish Post</a></li>
+{% endif %}
+{% endif %}
+</div>
+</div><!-- /panel-body -->
+</div><!-- /panel panel-default -->
