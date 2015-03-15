@@ -2,6 +2,7 @@ from django.views import generic
 from django.shortcuts import redirect
 from django.http import Http404
 from .models import Post, Category
+from django.shortcuts import render
 
 
 class IndexView(generic.ListView):
@@ -24,6 +25,14 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView):
     model = Post
     template_name = 'jblog/detail.html'
+
+    def get_object(self, queryset=None):
+    	obj = super(DetailView, self).get_object()
+    	if obj.published or self.request.user.has_perm('jblog.change_post'):
+    		return obj
+
+    	else:
+    		raise Http404("Incorrect Permissions!")
 
 
 
