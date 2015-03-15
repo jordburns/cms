@@ -9,5 +9,7 @@ class PollToolbar(CMSToolbar):
     def populate(self):
         if self.is_current_app:
             menu = self.toolbar.get_or_create_menu('jblog-app', _('JBlog'))
-            url = reverse('admin:jblog_post_add')
-            menu.add_modal_item(_('Add Post'), url=url)
+            uadd = reverse('admin:jblog_post_add')
+            ulist = reverse('admin:jblog_post_changelist')
+            menu.add_modal_item(_('Add Post'), url=uadd)
+            menu.add_modal_item(_('Post List'), url=ulist)

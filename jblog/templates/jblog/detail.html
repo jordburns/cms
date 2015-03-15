@@ -1,4 +1,7 @@
-{% extends 'jblog/base.html' %}
+{% extends CMS_TEMPLATE %}
+{% load cms_tags %}
+
+
 
 {% block content %}
 <h1>{{ post.title }}</h1>
@@ -7,4 +10,10 @@
 
 {{ post.abstract|safe }}
 
+<hr />
+
+{% render_placeholder post.content %}
+
+<br />
+<br />
 {% endblock %}
