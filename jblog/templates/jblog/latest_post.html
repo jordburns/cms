@@ -1,0 +1,5 @@
+{% if latest_post %}
+{{ latest_post.abstract|safe }}
+{% else %}
+<p>No published posts yet<p>
+{% endif %}
