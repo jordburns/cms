@@ -1,5 +1,16 @@
 {% if latest_post %}
-{{ latest_post.abstract|safe }}
+<div class="row">
+  <div class="col-sm-8 col-md-8">
+    <div class="thumbnail">
+      <img class="img-responsive img-thumbnail post_pic" src="{{latest_post.feature.url}}">
+      <div class="caption">
+        <h3>{{latest_post.title}}</h3>
+        <p>{{latest_post.abstract|safe }}</p>
+			<p><a class="btn btn-default" href="{{latest_post.get_absolute_url}}">READ MORE</a></li></p>
+      </div>
+    </div>
+  </div>
+</div>
 {% else %}
 <p>No published posts yet<p>
 {% endif %}
