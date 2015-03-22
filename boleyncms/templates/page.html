@@ -2,7 +2,10 @@
 {% load cms_tags staticfiles sekizai_tags menu_tags %}
 
 {% block content %}
-<div>
-  {% placeholder "content" %}
-</div>
+<div class="col-sm-7">
+{% placeholder "content" %}
+ </div>
+ <div class="col-sm-5">
+ {% placeholder "sidebar" %}
+ </div>
 {% endblock content %}

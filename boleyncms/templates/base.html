@@ -8,28 +8,40 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
      <!-- Custom -->
       <link rel="stylesheet" href="http://bootswatch.com/lumen/bootstrap.min.css">
+      <link rel="stylesheet" href="{% static "custom.css" %}">
   </head>
-  <body style="padding-top:60px">
+  <body>
     {% cms_toolbar %}
+     <!-- Image Background Page Header -->
+    <!-- Note: The background image is set within the custom.css file. -->
+    <header class="business-header">
         <div class="container">
-          {% include "menus/main_nav.html" %}
-          </div>
-
-
-
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="tagline">Business Name or Tagline</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+          
+        <div class="container custom-content">
+        <div class="row">
+        {% include "menus/main_nav.html" %}
+        </div>
         {% block content %}
         {% endblock content %}
-
-
         </div>
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+ 
     {% render_block "js" %}
-  </body>
 
-  <footer>
-  {% static_placeholder 'footer' %}
+     <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<footer>
+{% static_placeholder 'footer' %}
 </footer>
 
+</body>
 </html>
 

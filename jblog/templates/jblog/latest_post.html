@@ -1,6 +1,4 @@
 {% if latest_post %}
-<div class="row">
-  <div class="col-sm-8 col-md-8">
     <div class="thumbnail">
       <img class="img-responsive img-thumbnail post_pic" src="{{latest_post.feature.url}}">
       <div class="caption">
@@ -9,8 +7,6 @@
 			<p><a class="btn btn-default" href="{{latest_post.get_absolute_url}}">READ MORE</a></li></p>
       </div>
     </div>
-  </div>
-</div>
 {% else %}
 <p>No published posts yet<p>
 {% endif %}
